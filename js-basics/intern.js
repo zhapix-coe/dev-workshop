@@ -121,6 +121,37 @@ console.log("Total Score:", totalScore);
 // Calculate and print average score
 console.log("Average Score:", totalScore / scores.length);
 
+// error handling
+try {
+  // Step 1: Set intern name
+  let internName = "Rahul";
+
+  // Step 2: Ask intern to enter their age
+  let internAge = prompt("Hi " + internName + "! Enter your age:");
+
+  // Step 3: Convert the input (which is a string) to a number
+  let age = Number(internAge);
+
+  // Step 4: Check if the input is not a valid number
+  if (isNaN(age)) {
+    // If not a number, throw an error
+    throw new Error("Please enter a valid number for age.");
+  }
+
+  // Step 5: Check if the age is in the valid intern range (18 to 35)
+  if (age < 18 || age > 35) {
+    // If age is too low or too high, throw another error
+    throw new Error("Intern age must be between 18 and 35.");
+  }
+
+  // Step 6: If everything is okay, print a success message
+  console.log(" Welcome " + internName + "! Your age is " + age + ".");
+  
+} catch (error) {
+  // This block runs ONLY if an error happens above
+  // Step 7: Show a friendly error message to the intern
+  console.log(" Error: " + error.message);
+}
 
 });
 
